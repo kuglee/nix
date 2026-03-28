@@ -84,7 +84,6 @@
 
         CustomUserPreferences = {
           NSGlobalDomain = {
-            # Requires restarting open applications to take effect
             AppleMenuBarVisibleInFullscreen = true;
           };
 
@@ -117,6 +116,11 @@
       #   window_animation_duration = 0.0;
       #   window_opacity_duration = 0.0;
       # };
+
+      system.activationScripts.postActivation.text = ''
+        # Make the menu bar settings take effecct for running applications
+        sudo -u $USER osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
+      '';
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
