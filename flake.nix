@@ -87,6 +87,25 @@
             # Requires restarting open applications to take effect
             AppleMenuBarVisibleInFullscreen = true;
           };
+
+          "com.apple.Safari" = {
+            # General
+            AutoOpenSafeDownloads = false;
+            CanPromptForPushNotifications = false;
+
+            # Restore last session at launch
+            AlwaysRestoreSessionAtLaunch = true;
+            ExcludePrivateWindowWhenRestoringSessionAtLaunch = true;
+            OpenPrivateWindowWhenNotRestoringSessionAtLaunch = false;
+
+            # Developer menu (also need to enable this: com.apple.Safari.SandboxBroker.ShowDevelopMenu)
+            IncludeDevelopMenu = true;
+          };
+
+          # Developer menu (also need to enable this: com.apple.Safari.IncludeDevelpMenu)
+          "com.apple.Safari.SandboxBroker" = {
+            ShowDevelopMenu = true;
+          };
         };
       };
       system.keyboard.enableKeyMapping = true;
