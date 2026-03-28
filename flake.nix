@@ -65,6 +65,7 @@
         dock.show-recents = false;
         dock.showMissionControlGestureEnabled = true;
         dock.tilesize = 1;
+        dock.wvous-br-corner = 1;
         finder.AppleShowAllExtensions = true;
         finder.CreateDesktop = false;
         finder.FXPreferredViewStyle = "clmv";
@@ -81,6 +82,7 @@
         trackpad.TrackpadPinch = true;
         trackpad.TrackpadThreeFingerDrag = true;
       };
+
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToEscape = true;
 
