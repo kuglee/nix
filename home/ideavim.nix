@@ -1,0 +1,102 @@
+{ config, pkgs, ... }:
+
+{
+  home.file.".ideavimrc".text = ''
+set clipboard=unnamed,unnamedplus " use the system clipboard
+set ideajoin " use Intellij's smart join
+set scrolloff=5 " show next n lines while scrolling
+" set undolevels=-1 " legacy undo
+set relativenumber
+
+let mapleader="\<Space>"
+
+noremap <leader>w :action SaveDocument<CR>
+
+" new line in normal mode
+noremap <CR> o<Esc>
+noremap <S-Enter> O<Esc>
+
+" find and replace
+noremap / :action Find<CR>
+noremap <leader>/ :action Replace<CR>
+
+" split line
+map <C-j> <Action>(EditorSplitLine)
+
+" redo
+nnoremap U <C-r>
+
+" after block yank and paste, move cursor to the end of operated text and don't override register
+" THESE DON'T WORK WHEN THE UNNAMED OR UNNAMEDPLUS CLIPBOARD IS USED
+" THE 0TH REGISTER WON'T CONTAIN THE COPIED TEXT
+"vnoremap y y`]
+"noremap p "0p`]
+"noremap P "0P`]
+"noremap <leader>p p`]
+"noremap <leader>P P`]
+
+vnoremap y y
+nnoremap p p
+nnoremap P P
+vnoremap p "zdP
+vnoremap P "zdP
+nnoremap <leader>p "zp
+nnoremap <leader>P "zP
+" BUG: When using a register in a let expression the ^L (NULL) character is treated literally
+" (https://youtrack.jetbrains.com/issue/VIM-2603)
+"vnoremap <leader>p "yd"zp`] :let @z=@y<CR>
+"vnoremap <leader>P "yd"zP`] :let @z=@y<CR>
+vnoremap <leader>p "zp
+vnoremap <leader>P "zP
+
+" can't use 0th register for pasting because of the clipboard, so the these commands delete and yank
+" to the "z" register
+noremap x "zx
+noremap X "zX
+noremap d "zd
+nnoremap dd "zdd
+noremap D "zD
+noremap c "zc
+noremap s "zs
+
+" force the use of word movements and find character
+nnoremap h <nop>
+nnoremap l <nop>
+vnoremap h <nop>
+vnoremap l <nop>
+
+" select previous/next occurance
+noremap n :action FindNext<cr>
+noremap N :action FindPrevious<cr>
+
+" toggle all windows
+nmap <leader>tt :action HideAllWindows<cr>
+nmap <leader>tv :action ActivateVersionControlToolWindow<cr>
+nmap <leader>tr :action ActivateRunToolWindow<cr>
+nmap <leader>tp :action ActivateProblemsViewToolWindow<cr>
+
+" Telescope
+nmap <leader>ff :action GotoFile<cr>
+nmap <leader>fg :action FindInPath<cr>
+
+" Harpoon
+nmap <leader>h <action>(HarpoonerOpenFile0)
+nmap <leader>j <action>(HarpoonerOpenFile1)
+nmap <leader>k <action>(HarpoonerOpenFile2)
+nmap <leader>l <action>(HarpoonerOpenFile3)
+nmap <leader>e <action>(HarpoonerToggleQuickMenu)
+nmap <leader>a <action>(HarpoonerAddFile)
+
+" navigate errors
+nnoremap cn :action GotoNextError<CR>
+nnoremap cp :action GotoPreviousError<CR>
+
+" move lines
+vmap J <action>(MoveLineDown)
+vmap K <action>(MoveLineUp)
+
+nmap <leader>dv :action Compare.SameVersion<CR>
+
+Plug 'tpope/vim-commentary'
+  '';
+}
