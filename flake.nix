@@ -81,8 +81,14 @@
         trackpad.TrackpadFourFingerVertSwipeGesture = 2;
         trackpad.TrackpadPinch = true;
         trackpad.TrackpadThreeFingerDrag = true;
-      };
 
+        CustomUserPreferences = {
+          NSGlobalDomain = {
+            # Requires restarting open applications to take effect
+            AppleMenuBarVisibleInFullscreen = true;
+          };
+        };
+      };
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToEscape = true;
 
