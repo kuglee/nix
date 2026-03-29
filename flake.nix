@@ -49,7 +49,6 @@
         NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
-        # NSGlobalDomain.AppleReduceDesktopTinting = true;
         ActivityMonitor.ShowCategory = 100;
         ActivityMonitor.SortColumn = "CPUUsage";
         ActivityMonitor.SortDirection = 0;
@@ -85,6 +84,7 @@
           NSGlobalDomain = {
             AppleMenuBarVisibleInFullscreen = true;
             TSMLanguageIndicatorEnabled = false;
+            AppleReduceDesktopTinting = true;
           };
 
           "com.apple.Safari" = {
