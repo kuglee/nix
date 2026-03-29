@@ -18,6 +18,7 @@
     ./ghostty.nix
     ./git.nix
     ./ideavim.nix
+    ./keyboard-layout.nix
     ./swiftformat.nix
     ./zsh.nix
   ];
