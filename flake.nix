@@ -50,7 +50,6 @@
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
         # NSGlobalDomain.AppleReduceDesktopTinting = true;
-        # NSGlobalDomain.TSMLanguageIndicatorEnabled = false;
         ActivityMonitor.ShowCategory = 100;
         ActivityMonitor.SortColumn = "CPUUsage";
         ActivityMonitor.SortDirection = 0;
@@ -85,6 +84,7 @@
         CustomUserPreferences = {
           NSGlobalDomain = {
             AppleMenuBarVisibleInFullscreen = true;
+            TSMLanguageIndicatorEnabled = false;
           };
 
           "com.apple.Safari" = {
