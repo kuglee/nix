@@ -14,6 +14,10 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { config, pkgs, ... }: {
+      nixpkgs.overlays = [
+        (import ./pkgs)
+      ];
+
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
@@ -39,6 +43,11 @@
           pkgs.mkvtoolnix
           pkgs.transmission_4
           # pkgs.darwin.xcode
+
+          # Custom apps
+          pkgs.bettertouchtool
+          pkgs.forklift
+          pkgs.injection-next
         ];
 
       nixpkgs.config.allowUnfree = true;
