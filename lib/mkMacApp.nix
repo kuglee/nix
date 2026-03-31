@@ -29,8 +29,10 @@ stdenvNoCC.mkDerivation {
   
   installPhase = if isZip then ''
     runHook preInstall
+    temp=$(mktemp -d)
+    unzip -d $temp $src
     mkdir -p $out/Applications
-    unzip -d $out/Applications $src
+    mv -f $temp/*.app $out/Applications/
     runHook postInstall
   '' else if isDmg then ''
     runHook preInstall
