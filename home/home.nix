@@ -16,6 +16,7 @@
 
   imports = [
     ./betterTouchTool
+    ./brave.nix
     ./ghostty.nix
     ./git.nix
     ./ideavim.nix
