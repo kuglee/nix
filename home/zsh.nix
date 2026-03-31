@@ -45,6 +45,9 @@
       cp = "cp -i";
       mv = "mv -i";
       rm = "rm -i";
+
+      # Nix-darwin
+      darwin-switch="sudo darwin-rebuild switch --flake ~/.config/nix#macbook";
     };
 
     # Local variables (prompt, etc)
