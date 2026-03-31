@@ -79,15 +79,6 @@
       zstyle ':completion:*:man:*'      menu yes select
       zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' ''' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
-      # Tab completion with dots
-      expand-or-complete-with-dots() {
-        echo -n "\e[31m......\e[0m"
-        zle expand-or-complete
-        zle redisplay
-      }
-      zle -N expand-or-complete-with-dots
-      bindkey "^I" expand-or-complete-with-dots
-
       # Better URL pasting
       autoload -U url-quote-magic bracketed-paste-magic
       zle -N self-insert url-quote-magic
