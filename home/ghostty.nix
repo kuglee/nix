@@ -30,6 +30,9 @@
       # Mouse behavior
       mouse-hide-while-typing = true;
 
+      # Start new windows in fullscreen
+      fullscreen = true;
+
       # Keybindings
       keybind = [
         "cmd+s=text:\\x13"
