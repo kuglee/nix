@@ -153,6 +153,7 @@
           };
         };
       };
+
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToControl = true;
 
@@ -166,6 +167,11 @@
       system.activationScripts.postActivation.text = ''
         # Make the menu bar settings take effecct for running applications
         sudo -u $USER osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
+
+        # Debloat Brave
+        mkdir -p /Library/Managed\ Preferences/
+        cp -f ${config.users.users.kuglee.home}/.config/nix/home/brave/com.brave.Browser.plist /Library/Managed\ Preferences/
+        chmod 644 /Library/Managed\ Preferences/com.brave.Browser.plist
       '';
 
       # Set Git commit hash for darwin-version.
