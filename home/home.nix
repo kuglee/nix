@@ -15,6 +15,7 @@
   home.homeDirectory = "/Users/kuglee";
 
   imports = [
+    ./betterTouchTool
     ./ghostty.nix
     ./git.nix
     ./ideavim.nix
