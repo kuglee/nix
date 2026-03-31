@@ -147,7 +147,7 @@
         };
       };
       system.keyboard.enableKeyMapping = true;
-      system.keyboard.remapCapsLockToEscape = true;
+      system.keyboard.remapCapsLockToControl = true;
 
       services.yabai.enable = true;
       services.yabai.enableScriptingAddition = true;
