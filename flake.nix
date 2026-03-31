@@ -36,6 +36,7 @@
           pkgs.elmPackages.elm-format
           pkgs.elmPackages.elm-optimize-level-2
           pkgs.yabai
+          pkgs.mas
 
           # GUI apps
           pkgs.brave
@@ -50,6 +51,12 @@
           pkgs.forklift
           pkgs.injection-next
         ];
+        system.activationScripts.installMasApps.text = ''
+         /usr/bin/env mas install 1544743900 # Hush
+         /usr/bin/env mas install 1136220934 # Infuse
+         /usr/bin/env mas install 6745342698 # uBlock
+         /usr/bin/env mas install 1451685025 # WireGuard
+        '';
 
       nixpkgs.config.allowUnfree = true;
       system.activationScripts.applications.text = let
