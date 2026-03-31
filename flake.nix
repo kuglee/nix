@@ -35,6 +35,7 @@
           pkgs.elmPackages.elm
           pkgs.elmPackages.elm-format
           pkgs.elmPackages.elm-optimize-level-2
+          pkgs.yabai
 
           # GUI apps
           pkgs.brave
@@ -148,12 +149,12 @@
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToEscape = true;
 
-      # services.yabai.enable = true;
-      # services.yabai.enableScriptingAddition = true;
-      # services.yabai.config = {
-      #   window_animation_duration = 0.0;
-      #   window_opacity_duration = 0.0;
-      # };
+      services.yabai.enable = true;
+      services.yabai.enableScriptingAddition = true;
+      services.yabai.config = {
+        window_animation_duration = 0.0;
+        window_opacity_duration = 0.0;
+      };
 
       system.activationScripts.postActivation.text = ''
         # Make the menu bar settings take effecct for running applications
