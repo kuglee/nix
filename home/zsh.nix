@@ -28,7 +28,7 @@
 
     # Completion settings
     enableCompletion = true;
-    autosuggestion.enable = false;
+    autosuggestion.enable = true;
 
     # Shell aliases
     shellAliases = {
