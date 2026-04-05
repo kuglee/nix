@@ -151,6 +151,31 @@
           "com.apple.Safari.SandboxBroker" = {
             ShowDevelopMenu = true;
           };
+
+          "com.brave.Browser" = {
+            SUAutomaticallyUpdate = false;
+            SUEnableAutomaticChecks = false;
+            SUHasLaunchedBefore = true;
+          };
+
+          "net.freemacsoft.AppCleaner" = {
+            SUAutomaticallyUpdate = false;
+            SUEnableAutomaticChecks = false;
+            SUHasLaunchedBefore = true;
+          };
+
+          "com.binarynights.ForkLift" = {
+            SUAutomaticallyUpdate = false;
+            SUEnableAutomaticChecks = false;
+            SUHasLaunchedBefore = true;
+            setupDone = true;
+          };
+
+          "org.m0k.transmission" = {
+            SUAutomaticallyUpdate = false;
+            SUEnableAutomaticChecks = false;
+            SUHasLaunchedBefore = true;
+          };
         };
       };
 
