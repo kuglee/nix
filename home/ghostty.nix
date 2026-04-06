@@ -6,6 +6,9 @@
     package=pkgs.ghostty-bin;
 
     settings = {
+      # Update settings
+      auto-update = "off";
+
       # Theme configuration
       theme = "light:TokyoNight Day,dark:TokyoNight";
 
