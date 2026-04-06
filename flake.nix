@@ -50,6 +50,9 @@
           pkgs.bettertouchtool
           pkgs.forklift
           pkgs.injection-next
+
+          # Fonts
+          pkgs.nerd-fonts.monaspace
         ];
         system.activationScripts.installMasApps.text = ''
          /usr/bin/env mas install 1544743900 # Hush
