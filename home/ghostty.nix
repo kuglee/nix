@@ -21,7 +21,7 @@
       adjust-cell-height = 10;
 
       # Shell integration
-      shell-integration-features = [ "ssh-env" "no-cursor" ];
+      shell-integration-features = "ssh-env, no-cursor";
 
       # Cursor settings
       cursor-style = "block";
