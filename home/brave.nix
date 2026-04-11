@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
-  programs.chromium = {
+  programs.brave = {
     enable = true;
-    package = pkgs.brave;
     extensions = [
       { id = "edlhclhffmclbhgifomamlomnfolnepa"; } # Elm Debug Helper
+      { id = "pejdijmoenmkgeppbflobdenhhabjlaj"; } # iCloud-passwords
     ];
   };
 }
