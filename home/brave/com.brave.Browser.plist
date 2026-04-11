@@ -4,23 +4,114 @@
 <dict>
     <key>BraveAIChatEnabled</key>
     <false/>
+    <key>BraveNewsDisabled</key>
+    <true/>
+    <key>BraveP3AEnabled</key>
+    <false/>
     <key>BraveRewardsDisabled</key>
+    <true/>
+    <key>BraveSpeedreaderEnabled</key>
+    <false/>
+    <key>BraveStatsPingEnabled</key>
+    <false/>
+    <key>BraveSyncUrl</key>
+    <string></string>
+    <key>BraveTalkDisabled</key>
     <true/>
     <key>BraveVPNDisabled</key>
     <true/>
     <key>BraveWalletDisabled</key>
     <true/>
-    <key>IncognitoModeAvailability</key>
-    <integer>1</integer>
+    <key>BraveWaybackMachineEnabled</key>
+    <false/>
+    <key>BraveWebDiscoveryEnabled</key>
+    <false/>
     <key>TorDisabled</key>
     <true/>
-    <key>BraveLeoEnabled</key>
+    <key>DefaultGeolocationSetting</key>
+    <integer>2</integer>
+    <key>DefaultNotificationsSetting</key>
+    <integer>2</integer>
+    <key>DefaultLocalFontsSetting</key>
+    <integer>2</integer>
+    <key>DefaultSensorsSetting</key>
+    <integer>2</integer>
+    <key>DefaultSerialGuardSetting</key>
+    <integer>2</integer>
+    <key>CloudReportingEnabled</key>
     <false/>
-    <key>BraveChatEnabled</key>
+    <key>DriveDisabled</key>
+    <true/>
+    <key>PasswordManagerEnabled</key>
     <false/>
-    <key>BraveAIEnabled</key>
+    <key>PasswordSharingEnabled</key>
     <false/>
-    <key>CryptoWalletEnabled</key>
+    <key>PasswordLeakDetectionEnabled</key>
     <false/>
-</dict>
+    <key>QuickAnswersEnabled</key>
+    <false/>
+    <key>SafeBrowsingExtendedReportingEnabled</key>
+    <false/>
+    <key>SafeBrowsingSurveysEnabled</key>
+    <false/>
+    <key>SafeBrowsingDeepScanningEnabled</key>
+    <false/>
+    <key>DeviceActivityHeartbeatEnabled</key>
+    <false/>
+    <key>DeviceMetricsReportingEnabled</key>
+    <false/>
+    <key>HeartbeatEnabled</key>
+    <false/>
+    <key>LogUploadEnabled</key>
+    <false/>
+    <key>ReportAppInventory</key>
+    <array>
+      <string></string>
+    </array>
+    <key>ReportDeviceActivityTimes</key>
+    <false/>
+    <key>ReportDeviceAppInfo</key>
+    <false/>
+    <key>ReportDeviceSystemInfo</key>
+    <false/>
+    <key>ReportDeviceUsers</key>
+    <false/>
+    <key>ReportWebsiteTelemetry</key>
+    <array>
+      <string></string>
+    </array>
+    <key>AlternateErrorPagesEnabled</key>
+    <false/>
+    <key>AutofillCreditCardEnabled</key>
+    <false/>
+    <key>BackgroundModeEnabled</key>
+    <false/>
+    <key>BrowserGuestModeEnabled</key>
+    <false/>
+    <key>BrowserSignin</key>
+    <integer>0</integer>
+    <key>BuiltInDnsClientEnabled</key>
+    <false/>
+    <key>DefaultBrowserSettingEnabled</key>
+    <false/>
+    <key>MetricsReportingEnabled</key>
+    <false/>
+    <key>ParcelTrackingEnabled</key>
+    <false/>
+    <key>RelatedWebsiteSetsEnabled</key>
+    <false/>
+    <key>ShoppingListEnabled</key>
+    <false/>
+    <key>SyncDisabled</key>
+    <true/>
+    <key>IncognitoModeAvailability</key>
+    <integer>1</integer>
+    <key>ExtensionManifestV2Availability</key>
+    <integer>2</integer>
+    <key>ExtensionInstallForcelist</key>
+    <array>
+      <string>edlhclhffmclbhgifomamlomnfolnepa</string>
+      <string>pejdijmoenmkgeppbflobdenhhabjlaj</string>
+    </array>
+  </dict>
 </plist>
