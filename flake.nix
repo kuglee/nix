@@ -192,13 +192,73 @@
         window_opacity_duration = 0.0;
       };
 
-      system.activationScripts.postActivation.text = ''
-        # Make the menu bar settings take effecct for running applications
+      system.activationScripts.postActivation.text = let
+        plistFormat = pkgs.formats.plist { };
+        bravePlist = plistFormat.generate "com.brave.Browser.plist" {
+          BraveAIChatEnabled = false;
+          BraveNewsDisabled = true;
+          BraveP3AEnabled = false;
+          BraveRewardsDisabled = true;
+          BraveSpeedreaderEnabled = false;
+          BraveStatsPingEnabled = false;
+          BraveSyncUrl = "";
+          BraveTalkDisabled = true;
+          BraveVPNDisabled = true;
+          BraveWalletDisabled = true;
+          BraveWaybackMachineEnabled = false;
+          BraveWebDiscoveryEnabled = false;
+          TorDisabled = true;
+          DefaultGeolocationSetting = 2;
+          DefaultNotificationsSetting = 2;
+          DefaultLocalFontsSetting = 2;
+          DefaultSensorsSetting = 2;
+          DefaultSerialGuardSetting = 2;
+          CloudReportingEnabled = false;
+          DriveDisabled = true;
+          PasswordManagerEnabled = false;
+          PasswordSharingEnabled = false;
+          PasswordLeakDetectionEnabled = false;
+          QuickAnswersEnabled = false;
+          SafeBrowsingExtendedReportingEnabled = false;
+          SafeBrowsingSurveysEnabled = false;
+          SafeBrowsingDeepScanningEnabled = false;
+          DeviceActivityHeartbeatEnabled = false;
+          DeviceMetricsReportingEnabled = false;
+          HeartbeatEnabled = false;
+          LogUploadEnabled = false;
+          ReportAppInventory = [ "" ];
+          ReportDeviceActivityTimes = false;
+          ReportDeviceAppInfo = false;
+          ReportDeviceSystemInfo = false;
+          ReportDeviceUsers = false;
+          ReportWebsiteTelemetry = [ "" ];
+          AlternateErrorPagesEnabled = false;
+          AutofillCreditCardEnabled = false;
+          BackgroundModeEnabled = false;
+          BrowserGuestModeEnabled = false;
+          BrowserSignin = 0;
+          BuiltInDnsClientEnabled = false;
+          DefaultBrowserSettingEnabled = false;
+          MetricsReportingEnabled = false;
+          ParcelTrackingEnabled = false;
+          RelatedWebsiteSetsEnabled = false;
+          ShoppingListEnabled = false;
+          SyncDisabled = true;
+          IncognitoModeAvailability = 1;
+          ExtensionManifestV2Availability = 2;
+          ExtensionInstallForcelist = [
+            "edlhclhffmclbhgifomamlomnfolnepa"
+            "pejdijmoenmkgeppbflobdenhhabjlaj"
+          ];
+        };
+      in ''
+        # Make the menu bar settings take effect for running applications
         sudo -u $USER osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
 
         # Debloat Brave
+        # from: https://gist.github.com/yashgorana/be2368c04c0ec11b6e21c57a229a65ca
         mkdir -p /Library/Managed\ Preferences/
-        cp -f ${config.users.users.kuglee.home}/.config/nix/home/brave/com.brave.Browser.plist /Library/Managed\ Preferences/
+        cp -f ${bravePlist} /Library/Managed\ Preferences/com.brave.Browser.plist
         chmod 644 /Library/Managed\ Preferences/com.brave.Browser.plist
       '';
 
