@@ -63,11 +63,21 @@
           if (finder.windows.length > 0) {
             return finder.insertionLocation().url().slice(7)
           }
-       EOF
+        EOF
       '';
 
       cdf = ''
         cd "$(pfd)"
+      '';
+
+      # backup BetterTouchTool settings
+      backupBttSettings = ''
+        osascript -l JavaScript 2>/dev/null <<EOF
+          Application("BetterTouchTool").export_preset("Default", { 
+            outputpath: "~/.config/nix/home/betterTouchTool/Default.bttpreset",
+            includesettings: true 
+          });
+        EOF
       '';
     };
 
