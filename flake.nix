@@ -37,6 +37,7 @@
           pkgs.elmPackages.elm-optimize-level-2
           pkgs.yabai
           pkgs.mas
+          pkgs.tree-sitter
 
           # GUI apps
           pkgs.brave
