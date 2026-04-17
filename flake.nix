@@ -56,9 +56,7 @@
           pkgs.nerd-fonts.monaspace
         ];
         system.activationScripts.installMasApps.text = ''
-         /usr/bin/env mas install 1544743900 # Hush
          /usr/bin/env mas install 1136220934 # Infuse
-         /usr/bin/env mas install 6745342698 # uBlock
          /usr/bin/env mas install 1451685025 # WireGuard
         '';
 
