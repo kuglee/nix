@@ -55,6 +55,7 @@
           pkgs.bettertouchtool
           pkgs.forklift
           pkgs.injection-next
+          pkgs.sf-symbols
         ];
       system.activationScripts.installMasApps.text = ''
        /usr/bin/env mas install 1136220934 # Infuse
