@@ -9,13 +9,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, apple-fonts }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { config, pkgs, ... }: {
       nixpkgs.overlays = [
@@ -64,7 +60,6 @@
 
       fonts.packages = [
         pkgs.nerd-fonts.monaspace
-        apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro
       ];
 
       nixpkgs.config.allowUnfree = true;
