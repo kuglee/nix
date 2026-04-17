@@ -51,14 +51,15 @@
           pkgs.bettertouchtool
           pkgs.forklift
           pkgs.injection-next
-
-          # Fonts
-          pkgs.nerd-fonts.monaspace
         ];
-        system.activationScripts.installMasApps.text = ''
-         /usr/bin/env mas install 1136220934 # Infuse
-         /usr/bin/env mas install 1451685025 # WireGuard
-        '';
+      system.activationScripts.installMasApps.text = ''
+       /usr/bin/env mas install 1136220934 # Infuse
+       /usr/bin/env mas install 1451685025 # WireGuard
+      '';
+
+      fonts.packages = [
+        pkgs.nerd-fonts.monaspace
+      ];
 
       nixpkgs.config.allowUnfree = true;
       system.activationScripts.applications.text = let
