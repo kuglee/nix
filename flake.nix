@@ -17,7 +17,26 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-jetbrains-plugins }:
   let
-    configuration = { config, pkgs, ... }: {
+    inherit (nix-jetbrains-plugins.lib) buildIdeWithPlugins;
+
+    pkgs = import nixpkgs {
+      system = "aarch64-darwin";
+      config.allowUnfree = true;
+    };
+    ideaWithPlugins = (buildIdeWithPlugins pkgs "idea" [
+      "IdeaVIM"
+      "com.github.erotourtes.harpoon"
+      "com.vermouthx.xcode-theme"
+    ]).overrideAttrs (old: {
+        disallowedReferences = [];
+      });
+    intellijVersion =
+      let
+        parts = pkgs.lib.strings.splitString "." ideaWithPlugins.version;
+      in
+        "${builtins.elemAt parts 0}.${builtins.elemAt parts 1}";
+    configuration = { config, pkgs, ... }:
+    {
       nixpkgs.overlays = [
         (import ./pkgs)
       ];
@@ -42,6 +61,7 @@
           pkgs.yabai
           pkgs.mas
           pkgs.tree-sitter
+          ideaWithPlugins
 
           # GUI apps
           pkgs.brave
@@ -55,16 +75,6 @@
           pkgs.forklift
           pkgs.injection-next
           pkgs.sf-symbols
-
-          # Intellij Idea
-          ((buildIdeWithPlugins pkgs "idea" [
-            "IdeaVIM"
-            "com.github.erotourtes.harpoon"
-            "com.vermouthx.xcode-theme"
-          ]).overrideAttrs (old: {
-              # Strip the inherited reference checks so the wrapper can cleanly build
-            disallowedReferences = [];
-            }))
         ];
       system.activationScripts.installMasApps.text = ''
        /usr/bin/env mas install 1136220934 # Infuse
@@ -279,6 +289,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            extraSpecialArgs = { inherit intellijVersion; };
             users.kuglee = home/home.nix;
           };
         }
