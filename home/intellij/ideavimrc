@@ -1,7 +1,3 @@
-{ config, pkgs, ... }:
-
-{
-  home.file.".ideavimrc".text = ''
 set clipboard=unnamed,unnamedplus " use the system clipboard
 set ideajoin " use Intellij's smart join
 set scrolloff=5 " show next n lines while scrolling
@@ -98,5 +94,28 @@ vmap K <action>(MoveLineUp)
 nmap <leader>dv :action Compare.SameVersion<CR>
 
 Plug 'tpope/vim-commentary'
-  '';
-}
+
+" Idea keybinding handlers
+sethandler <S-CR> a:vim
+sethandler <S-Left> a:vim
+sethandler <C-A> a:vim
+sethandler <C-B> a:vim
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:vim
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:vim
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim

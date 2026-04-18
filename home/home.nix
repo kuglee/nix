@@ -18,7 +18,7 @@
     ./betterTouchTool
     ./ghostty.nix
     ./git.nix
-    ./ideavim.nix
+    ./intellij
     ./keyboard-layout.nix
     ./swiftformat.nix
     ./zsh.nix
