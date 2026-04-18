@@ -5,13 +5,17 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-jetbrains-plugins = {
+      url = "github:nix-community/nix-jetbrains-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-jetbrains-plugins }:
   let
     configuration = { config, pkgs, ... }: {
       nixpkgs.overlays = [
@@ -20,7 +24,7 @@
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
+      environment.systemPackages = with nix-jetbrains-plugins.lib;
         [ pkgs.neovim
           pkgs.git
           pkgs.ffmpeg
@@ -41,7 +45,6 @@
 
           # GUI apps
           pkgs.brave
-          pkgs.jetbrains.idea
           pkgs.keka
           pkgs.mkvtoolnix
           pkgs.transmission_4
@@ -52,6 +55,16 @@
           pkgs.forklift
           pkgs.injection-next
           pkgs.sf-symbols
+
+          # Intellij Idea
+          ((buildIdeWithPlugins pkgs "idea" [
+            "IdeaVIM"
+            "com.github.erotourtes.harpoon"
+            "com.vermouthx.xcode-theme"
+          ]).overrideAttrs (old: {
+              # Strip the inherited reference checks so the wrapper can cleanly build
+            disallowedReferences = [];
+            }))
         ];
       system.activationScripts.installMasApps.text = ''
        /usr/bin/env mas install 1136220934 # Infuse
