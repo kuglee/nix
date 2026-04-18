@@ -79,6 +79,23 @@
           });
         EOF
       '';
+
+      # from: https://github.com/thanhdevapp/jetbrains-reset-trial-evaluation-mac
+      reset-intellij-eval = ''
+        setopt NULL_GLOB
+        rm -rf ~/"Library/Application Support/JetBrains/IntelliJIdea"*/eval/*.key
+        sed -i "" '/evlsprt/d' ~/"Library/Application Support/JetBrains/IntelliJIdea"*/options/other.xml
+        rm -f ~/Library/Preferences/com.apple.java.util.prefs.plist
+        rm -f ~/Library/Preferences/com.jetbrains.*.plist
+        rm -f ~/Library/Preferences/jetbrains.*.*.plist
+        for f in ~/Library/Preferences/jetbrains.*.plist; do
+            if [[ -f $f ]]; then
+                fn=''${f##*/}; key=''${fn%.plist}
+                defaults delete "''${fn%.plist}" 2>/dev/null && rm "$f"
+            fi
+        done
+        killall cfprefsd
+      '';
     };
 
     # Init commands (additional configuration)
