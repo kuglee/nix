@@ -73,6 +73,7 @@
 
           # Custom apps
           pkgs.bettertouchtool
+          pkgs.kinesis-smart-set-app
           pkgs.forklift
           pkgs.injection-next
           pkgs.sf-symbols

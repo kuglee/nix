@@ -5,34 +5,38 @@
   version,
   url,
   hash,
+  type ? null,
   license ? lib.licenses.unfree,
 }:
 
 let
-  isDmg = lib.hasSuffix ".dmg" url;
-  isZip = lib.hasSuffix ".zip" url;
-  isTarGz = lib.hasSuffix ".tar.gz" url || lib.hasSuffix ".tgz" url;
+  inferredType = if lib.hasSuffix ".dmg" url then "dmg"
+    else if lib.hasSuffix ".zip" url then "zip"
+    else type;
+
+  name = if inferredType != null then "download.${inferredType}"
+    else "download";
 in
 stdenvNoCC.mkDerivation {
   inherit pname version;
 
   src = fetchurl {
-    inherit url hash;
+    inherit url hash name;
   };
 
-  nativeBuildInputs = lib.optionals isZip [ unzip ]
-                   ++ lib.optionals isDmg [ undmg ];
+  nativeBuildInputs = lib.optionals (inferredType == "zip") [ unzip ]
+                   ++ lib.optionals (inferredType == "dmg") [ undmg ];
 
-  dontUnpack = isZip || isDmg;
+  dontUnpack = true;
 
-  installPhase = if isZip then ''
+  installPhase = if inferredType == "zip" then ''
     runHook preInstall
     temp=$(mktemp -d)
-    unzip -d $temp $src
+    unzip -d $temp "$src"
     mkdir -p $out/Applications
     mv -f $temp/*.app $out/Applications/
     runHook postInstall
-  '' else if isDmg then ''
+  '' else if inferredType == "dmg" then ''
     runHook preInstall
     mountpoint=$(mktemp -d)
     /usr/bin/hdiutil attach "$src" -mountpoint "$mountpoint" -nobrowse -quiet
