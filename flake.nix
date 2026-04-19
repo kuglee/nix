@@ -58,6 +58,7 @@
           pkgs.elmPackages.elm
           pkgs.elmPackages.elm-format
           pkgs.elmPackages.elm-optimize-level-2
+          pkgs.rtorrent
           pkgs.yabai
           pkgs.yazi
           pkgs.mas
@@ -70,7 +71,6 @@
           pkgs.brave
           pkgs.keka
           pkgs.mkvtoolnix
-          pkgs.transmission_4
           # pkgs.darwin.xcode
 
           # Custom apps
