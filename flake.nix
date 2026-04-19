@@ -65,6 +65,7 @@
           pkgs.defaultbrowser
 
           # GUI apps
+          pkgs.appcleaner
           pkgs.brave
           pkgs.keka
           pkgs.mkvtoolnix
