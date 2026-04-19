@@ -59,6 +59,7 @@
           pkgs.elmPackages.elm-format
           pkgs.elmPackages.elm-optimize-level-2
           pkgs.yabai
+          pkgs.yazi
           pkgs.mas
           pkgs.tree-sitter
           ideaWithPlugins
