@@ -62,6 +62,7 @@
           pkgs.mas
           pkgs.tree-sitter
           ideaWithPlugins
+          pkgs.defaultbrowser
 
           # GUI apps
           pkgs.brave
@@ -265,6 +266,10 @@
         mkdir -p /Library/Managed\ Preferences/
         cp -f ${bravePlist} /Library/Managed\ Preferences/com.brave.Browser.plist
         chmod 644 /Library/Managed\ Preferences/com.brave.Browser.plist
+
+        # Set Brave as the default browser
+        # NOTE: this will show a popup if the browser is not already the default
+        "${pkgs.defaultbrowser}/bin/defaultbrowser" browser
       '';
 
       # Set Git commit hash for darwin-version.
