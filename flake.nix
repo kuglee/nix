@@ -202,6 +202,10 @@
       system.activationScripts.postActivation.text = let
         plistFormat = pkgs.formats.plist { };
         bravePlist = plistFormat.generate "com.brave.Browser.plist" {
+          AlternateErrorPagesEnabled = false;
+          AutofillCreditCardEnabled = false;
+          BackgroundModeEnabled = false;
+          BookmarkBarEnabled = false;
           BraveAIChatEnabled = false;
           BraveNewsDisabled = true;
           BraveP3AEnabled = false;
@@ -214,49 +218,51 @@
           BraveWalletDisabled = true;
           BraveWaybackMachineEnabled = false;
           BraveWebDiscoveryEnabled = false;
-          TorDisabled = true;
+          BrowserGuestModeEnabled = false;
+          BrowserSignin = 0;
+          BuiltInDnsClientEnabled = false;
+          CloudReportingEnabled = false;
+          DefaultBrowserSettingEnabled = true;
           DefaultGeolocationSetting = 2;
-          DefaultNotificationsSetting = 2;
           DefaultLocalFontsSetting = 2;
+          DefaultNotificationsSetting = 2;
+          DefaultSearchProviderEnabled = true;
+          DefaultSearchProviderName = "Google";
+          DefaultSearchProviderSearchURL = "www.google.com";
           DefaultSensorsSetting = 2;
           DefaultSerialGuardSetting = 2;
-          CloudReportingEnabled = false;
-          DriveDisabled = true;
-          PasswordManagerEnabled = false;
-          PasswordSharingEnabled = false;
-          PasswordLeakDetectionEnabled = false;
-          QuickAnswersEnabled = false;
-          SafeBrowsingExtendedReportingEnabled = false;
-          SafeBrowsingSurveysEnabled = false;
-          SafeBrowsingDeepScanningEnabled = false;
           DeviceActivityHeartbeatEnabled = false;
           DeviceMetricsReportingEnabled = false;
+          DriveDisabled = true;
+          ExtensionInstallForcelist = [
+            "edlhclhffmclbhgifomamlomnfolnepa" # Elm Debug Helper
+            "pejdijmoenmkgeppbflobdenhhabjlaj" # iCloud Passwords
+          ];
+          ExtensionManifestV2Availability = 2;
           HeartbeatEnabled = false;
+          IncognitoModeAvailability = 1;
           LogUploadEnabled = false;
+          MemorySaverEnabled = true;
+          MetricsReportingEnabled = false;
+          ParcelTrackingEnabled = false;
+          PasswordLeakDetectionEnabled = false;
+          PasswordManagerEnabled = false;
+          PasswordSharingEnabled = false;
+          QuickAnswersEnabled = false;
+          RelatedWebsiteSetsEnabled = false;
           ReportAppInventory = [ "" ];
           ReportDeviceActivityTimes = false;
           ReportDeviceAppInfo = false;
           ReportDeviceSystemInfo = false;
           ReportDeviceUsers = false;
           ReportWebsiteTelemetry = [ "" ];
-          AlternateErrorPagesEnabled = false;
-          AutofillCreditCardEnabled = false;
-          BackgroundModeEnabled = false;
-          BrowserGuestModeEnabled = false;
-          BrowserSignin = 0;
-          BuiltInDnsClientEnabled = false;
-          DefaultBrowserSettingEnabled = false;
-          MetricsReportingEnabled = false;
-          ParcelTrackingEnabled = false;
-          RelatedWebsiteSetsEnabled = false;
+          SafeBrowsingDeepScanningEnabled = false;
+          SafeBrowsingExtendedReportingEnabled = false;
+          SafeBrowsingSurveysEnabled = false;
           ShoppingListEnabled = false;
+          ShowHomeButton = false;
           SyncDisabled = true;
-          IncognitoModeAvailability = 1;
-          ExtensionManifestV2Availability = 2;
-          ExtensionInstallForcelist = [
-            "edlhclhffmclbhgifomamlomnfolnepa"
-            "pejdijmoenmkgeppbflobdenhhabjlaj"
-          ];
+          TorDisabled = true;
         };
       in ''
         # Make the menu bar settings take effect for running applications
