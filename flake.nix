@@ -265,6 +265,12 @@
           ShowHomeButton = false;
           SyncDisabled = true;
           TorDisabled = true;
+          WebAppInstallForceList = [
+            {
+              url = "https://www.facebook.com/?ref=homescreenpwa";
+              default_launch_container = "window";
+            }
+          ];
         };
       in ''
         # Make the menu bar settings take effect for running applications
