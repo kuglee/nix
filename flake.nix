@@ -65,6 +65,7 @@
           pkgs.tree-sitter
           ideaWithPlugins
           pkgs.defaultbrowser
+          pkgs.lazygit
 
           # GUI apps
           pkgs.appcleaner
