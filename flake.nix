@@ -49,6 +49,7 @@
           pkgs.ffmpeg
           pkgs.yt-dlp
           pkgs.mkcert
+          pkgs.nss
           pkgs.imagemagick
           pkgs.ripgrep
           pkgs.swiftformat
