@@ -74,7 +74,6 @@
           pkgs.brave
           pkgs.keka
           pkgs.mkvtoolnix
-          # pkgs.darwin.xcode
 
           # Custom apps
           pkgs.bettertouchtool
