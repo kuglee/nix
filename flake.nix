@@ -66,6 +66,7 @@
           ideaWithPlugins
           pkgs.defaultbrowser
           pkgs.lazygit
+          pkgs.btop
 
           # GUI apps
           pkgs.appcleaner
