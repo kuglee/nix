@@ -215,7 +215,7 @@
           BraveRewardsDisabled = true;
           BraveSpeedreaderEnabled = false;
           BraveStatsPingEnabled = false;
-          BraveSyncUrl = "";
+          # BraveSyncUrl = "";
           BraveTalkDisabled = true;
           BraveVPNDisabled = true;
           BraveWalletDisabled = true;
@@ -264,7 +264,7 @@
           SafeBrowsingSurveysEnabled = false;
           ShoppingListEnabled = false;
           ShowHomeButton = false;
-          SyncDisabled = true;
+          # SyncDisabled = true;
           TorDisabled = true;
           WebAppInstallForceList = [
             {
