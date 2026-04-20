@@ -68,6 +68,7 @@
           pkgs.defaultbrowser
           pkgs.lazygit
           pkgs.btop
+          pkgs.xcbeautify
 
           # GUI apps
           pkgs.appcleaner
