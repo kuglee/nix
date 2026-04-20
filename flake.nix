@@ -268,6 +268,7 @@
           ShowHomeButton = false;
           # SyncDisabled = true;
           TorDisabled = true;
+          TranslateEnabled = false;
           WebAppInstallForceList = [
             {
               url = "https://www.facebook.com/?ref=homescreenpwa";
