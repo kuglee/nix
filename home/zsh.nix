@@ -34,7 +34,7 @@
     shellAliases = {
       ls = "ls -G";
       rg = "rg -i";
-      reloadprefs = "killall -u $(whoami) cfprefsd";
+      reloadprefs = "sudo killall cfprefsd";
 
       # yt-dlp aliases
       yt-dlp-mp4 = ''yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" -S vcodec:h264 --restrict-filename -o "%(title).150B-[%(id)s].%(ext)s"'';
