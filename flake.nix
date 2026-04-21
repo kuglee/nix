@@ -296,7 +296,8 @@
         # NOTE: this will show a popup if the browser is not already the default
         "${pkgs.defaultbrowser}/bin/defaultbrowser" browser
 
-        # Reload system settings
+        # Activate system settings
+        sudo -u ${config.system.primaryUser} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
         killall cfprefsd
       '';
 
