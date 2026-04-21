@@ -159,6 +159,7 @@
         trackpad.TrackpadFourFingerVertSwipeGesture = 2;
         trackpad.TrackpadPinch = true;
         trackpad.TrackpadThreeFingerDrag = true;
+        WindowManager.StandardHideWidgets = true;
 
         CustomUserPreferences = {
           NSGlobalDomain = {
