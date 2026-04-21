@@ -169,6 +169,10 @@
             AppleReduceDesktopTinting = true;
           };
 
+          "com.apple.Spotlight" = {
+            MenuItemHidden = true;
+          };
+
           "com.brave.Browser" = {
             SUAutomaticallyUpdate = false;
             SUEnableAutomaticChecks = false;
