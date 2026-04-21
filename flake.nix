@@ -290,6 +290,9 @@
         # Set Brave as the default browser
         # NOTE: this will show a popup if the browser is not already the default
         "${pkgs.defaultbrowser}/bin/defaultbrowser" browser
+
+        # Reload system settings
+        sudo killall cfprefsd
       '';
 
       # Set Git commit hash for darwin-version.
