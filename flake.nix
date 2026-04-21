@@ -195,7 +195,7 @@
       };
 
       system.keyboard.enableKeyMapping = true;
-      system.keyboard.remapCapsLockToControl = true;
+      system.keyboard.remapCapsLockToEscape = true;
 
       services.yabai.enable = true;
       services.yabai.enableScriptingAddition = true;
