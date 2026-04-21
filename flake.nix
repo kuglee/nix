@@ -284,7 +284,7 @@
         };
       in ''
         # Make the menu bar settings take effect for running applications
-        sudo -u $USER osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
+        osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
 
         # Debloat Brave
         # from: https://gist.github.com/yashgorana/be2368c04c0ec11b6e21c57a229a65ca
@@ -297,7 +297,7 @@
         "${pkgs.defaultbrowser}/bin/defaultbrowser" browser
 
         # Reload system settings
-        sudo killall cfprefsd
+        killall cfprefsd
       '';
 
       # Set Git commit hash for darwin-version.
