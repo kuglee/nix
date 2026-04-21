@@ -72,7 +72,7 @@
 
       # backup BetterTouchTool settings
       backupBttSettings = ''
-        osascript -l JavaScript 2>/dev/null <<EOF
+        osascript -l JavaScript 2>&1 >/dev/null <<EOF
           Application("BetterTouchTool").export_preset("config", { 
             outputpath: "~/.config/nix/home/betterTouchTool/config.bttpreset",
             includesettings: true 
