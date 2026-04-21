@@ -152,6 +152,7 @@
         finder.ShowPathbar = true;
         finder.ShowStatusBar = true;
         finder._FXEnableColumnAutoSizing = true;
+        hitoolbox.AppleFnUsageType = "Show Emoji & Symbols";
         loginwindow.GuestEnabled = false;
         screencapture.disable-shadow = true;
         screencapture.target = "preview";
