@@ -155,6 +155,7 @@
         loginwindow.GuestEnabled = false;
         screencapture.disable-shadow = true;
         screencapture.target = "preview";
+        trackpad.TrackpadRightClick = false;
         trackpad.TrackpadFourFingerHorizSwipeGesture = 2;
         trackpad.TrackpadFourFingerVertSwipeGesture = 2;
         trackpad.TrackpadPinch = true;
