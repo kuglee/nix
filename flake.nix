@@ -297,6 +297,26 @@
         # NOTE: this will show a popup if the browser is not already the default
         "${pkgs.defaultbrowser}/bin/defaultbrowser" browser
 
+        # Disable True Tone and auto brightness
+        # from: https://medium.com/@laclementine/disable-true-tone-auto-brightness-and-set-brightness-level-with-a-script-27bda19aed8a
+        userID=$(dscl . -read /Users/${config.system.primaryUser}/ GeneratedUID | awk -F': ' '{print $2}')
+        plistPal="/usr/libexec/PlistBuddy"
+        configRoot="/private/var/root/Library/Preferences/com.apple.CoreBrightness.plist"
+        displayID=$($plistPal -c "Print :DisplayPreferences:" "$configRoot" \
+          | grep "= Dict" \
+          | grep -v AutoBrightnessCurve \
+          | awk '{print $1}'
+        )
+        upsert() {
+          local path="$1" type="$2" value="$3" file="$4"
+          $plistPal -c "Set $path $value" "$file" 2>/dev/null \
+            || $plistPal -c "Add $path $type $value" "$file"
+        }
+        upsert ":CBUser-$userID:CBColorAdaptationEnabled" bool "0" "$configRoot"
+        upsert ":DisplayPreferences:$displayID:AutoBrightnessEnable" bool "false" "$configRoot"
+        killall cfprefsd
+        killall corebrightnessd
+
         # Activate system settings
         sudo -u ${config.system.primaryUser} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
         killall cfprefsd
