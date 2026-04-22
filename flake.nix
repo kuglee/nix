@@ -215,6 +215,9 @@
         window_animation_duration = 0.0;
         window_opacity_duration = 0.0;
       };
+      services.yabai.extraConfig = ''
+        sudo yabai --load-sa
+      '';
 
       system.activationScripts.postActivation.text = let
         plistFormat = pkgs.formats.plist { };
