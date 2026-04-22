@@ -126,6 +126,11 @@
         NSGlobalDomain.InitialKeyRepeat = 25;
         NSGlobalDomain.KeyRepeat = 2;
         NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+        NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+        NSGlobalDomain.NSAutomaticInlinePredictionEnabled = false;
+        NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+        NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+        NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
         NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
         NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
