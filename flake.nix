@@ -260,7 +260,6 @@
           ];
           ExtensionManifestV2Availability = 2;
           HeartbeatEnabled = false;
-          IncognitoModeAvailability = 1;
           LogUploadEnabled = false;
           MemorySaverEnabled = true;
           MetricsReportingEnabled = false;
