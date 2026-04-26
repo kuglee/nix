@@ -69,6 +69,7 @@
           pkgs.lazygit
           pkgs.btop
           pkgs.xcbeautify
+          pkgs.stylua
 
           # GUI apps
           pkgs.appcleaner
