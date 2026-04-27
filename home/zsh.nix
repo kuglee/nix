@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   programs.zsh = {
     enable = true;
 
