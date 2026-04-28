@@ -218,9 +218,6 @@
         window_animation_duration = 0.0;
         window_opacity_duration = 0.0;
       };
-      services.yabai.extraConfig = ''
-        sudo yabai --load-sa
-      '';
 
       system.activationScripts.postActivation.text = let
         plistFormat = pkgs.formats.plist { };
@@ -330,6 +327,9 @@
         # Activate system settings
         sudo -u ${config.system.primaryUser} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
         killall cfprefsd
+
+        # WORKAROUND: yabai doesn't load scripting additions automatically
+        ${pkgs.yabai}/bin/yabai --load-sa
       '';
 
       # Set Git commit hash for darwin-version.
