@@ -72,6 +72,7 @@
           pkgs.btop
           pkgs.xcbeautify
           pkgs.stylua
+          pkgs.mediainfo
 
           # GUI apps
           pkgs.appcleaner
