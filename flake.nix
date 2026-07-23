@@ -78,7 +78,6 @@
           pkgs.appcleaner
           pkgs.brave
           pkgs.keka
-          pkgs.mkvtoolnix
 
           # Custom apps
           pkgs.bettertouchtool
