@@ -41,7 +41,7 @@
       reloadprefs = "sudo killall cfprefsd";
 
       # yt-dlp aliases
-      yt-dlp-mp4 = ''yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" -S vcodec:h264 --restrict-filename -o "%(title).150B-[%(id)s].%(ext)s"'';
+      yt-dlp-mp4 = ''yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" -S vcodec:h264 --restrict-filename -o "%(uploader)s - "%(title,fulltitle,id).150B-[%(id)s].%(ext)s"'';
       yt-dlp-1080 = ''yt-dlp -f "bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4]" -S vcodec:h264 --restrict-filenames -o "%(title).150B-[%(id)s].%(ext)s"'';
       yt-dlp-1080-date = ''yt-dlp -f "bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4]" -S vcodec:h264 --restrict-filenames -o "%(title).150B-[%(id)s]-%(upload_date)s.%(ext)s"'';
 
@@ -104,6 +104,9 @@
 
     # Init commands (additional configuration)
     initContent = ''
+      # Increase file descriptor limit for applications like rTorrent
+      ulimit -n 1024
+
       # Completion styles
       zstyle ':completion:*:manuals'    separate-sections true
       zstyle ':completion:*:manuals.*'  insert-sections   true
