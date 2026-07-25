@@ -20,6 +20,7 @@
     ./git.nix
     ./intellij
     ./keyboard-layout.nix
+    ./rtorrent.nix
     ./swiftformat.nix
     ./zsh.nix
   ];
