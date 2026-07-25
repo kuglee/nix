@@ -22,6 +22,7 @@
     ./keyboard-layout.nix
     ./rtorrent.nix
     ./swiftformat.nix
+    ./yazi.nix
     ./zsh.nix
   ];
 }
