@@ -38,6 +38,87 @@
       in
         "${builtins.elemAt parts 0}.${builtins.elemAt parts 1}";
     configuration = { config, pkgs, ... }:
+    let
+      plistFormat = pkgs.formats.plist { };
+      bravePlist = plistFormat.generate "com.brave.Browser.plist" {
+        AlternateErrorPagesEnabled = false;
+        AutofillCreditCardEnabled = false;
+        BackgroundModeEnabled = false;
+        BookmarkBarEnabled = false;
+        BraveAIChatEnabled = false;
+        BraveNewsDisabled = true;
+        BraveP3AEnabled = false;
+        BraveRewardsDisabled = true;
+        BraveSpeedreaderEnabled = false;
+        BraveStatsPingEnabled = false;
+        # BraveSyncUrl = "";
+        BraveTalkDisabled = true;
+        BraveVPNDisabled = true;
+        BraveWalletDisabled = true;
+        BraveWaybackMachineEnabled = false;
+        BraveWebDiscoveryEnabled = false;
+        BrowserGuestModeEnabled = false;
+        BrowserSignin = 0;
+        BuiltInDnsClientEnabled = false;
+        CloudReportingEnabled = false;
+        DefaultBrowserSettingEnabled = true;
+        DefaultGeolocationSetting = 2;
+        DefaultLocalFontsSetting = 2;
+        DefaultNotificationsSetting = 2;
+        DefaultSearchProviderEnabled = true;
+        DefaultSearchProviderName = "Google";
+        DefaultSearchProviderSearchURL = "www.google.com";
+        DefaultSensorsSetting = 2;
+        DefaultSerialGuardSetting = 2;
+        DeviceActivityHeartbeatEnabled = false;
+        DeviceMetricsReportingEnabled = false;
+        DriveDisabled = true;
+        ExtensionInstallForcelist = [
+          "edlhclhffmclbhgifomamlomnfolnepa" # Elm Debug Helper
+          "pejdijmoenmkgeppbflobdenhhabjlaj" # iCloud Passwords
+        ];
+        ExtensionManifestV2Availability = 2;
+        HeartbeatEnabled = false;
+        LogUploadEnabled = false;
+        MemorySaverEnabled = true;
+        MetricsReportingEnabled = false;
+        ParcelTrackingEnabled = false;
+        PasswordLeakDetectionEnabled = false;
+        PasswordManagerEnabled = false;
+        PasswordSharingEnabled = false;
+        QuickAnswersEnabled = false;
+        RelatedWebsiteSetsEnabled = false;
+        ReportAppInventory = [ "" ];
+        ReportDeviceActivityTimes = false;
+        ReportDeviceAppInfo = false;
+        ReportDeviceSystemInfo = false;
+        ReportDeviceUsers = false;
+        ReportWebsiteTelemetry = [ "" ];
+        SafeBrowsingDeepScanningEnabled = false;
+        SafeBrowsingExtendedReportingEnabled = false;
+        SafeBrowsingSurveysEnabled = false;
+        ShoppingListEnabled = false;
+        ShowHomeButton = false;
+        # SyncDisabled = true;
+        TorDisabled = true;
+        TranslateEnabled = false;
+        WebAppInstallForceList = [
+          {
+            url = "https://www.facebook.com/?ref=homescreenpwa";
+            default_launch_container = "window";
+          }
+        ];
+      };
+
+      restoreBravePlist = pkgs.writeShellScript "restore-brave-managed-prefs" ''
+        mkdir -p "/Library/Managed Preferences"
+        if ! cmp -s "${bravePlist}" "/Library/Managed Preferences/com.brave.Browser.plist" 2>/dev/null; then
+          cp -f "${bravePlist}" "/Library/Managed Preferences/com.brave.Browser.plist"
+          chmod 644 "/Library/Managed Preferences/com.brave.Browser.plist"
+          /usr/bin/killall cfprefsd 2>/dev/null || true
+        fi
+      '';
+    in
     {
       nixpkgs.overlays = [
         (import ./pkgs)
@@ -219,86 +300,21 @@
         window_opacity_duration = 0.0;
       };
 
-      system.activationScripts.postActivation.text = let
-        plistFormat = pkgs.formats.plist { };
-        bravePlist = plistFormat.generate "com.brave.Browser.plist" {
-          AlternateErrorPagesEnabled = false;
-          AutofillCreditCardEnabled = false;
-          BackgroundModeEnabled = false;
-          BookmarkBarEnabled = false;
-          BraveAIChatEnabled = false;
-          BraveNewsDisabled = true;
-          BraveP3AEnabled = false;
-          BraveRewardsDisabled = true;
-          BraveSpeedreaderEnabled = false;
-          BraveStatsPingEnabled = false;
-          # BraveSyncUrl = "";
-          BraveTalkDisabled = true;
-          BraveVPNDisabled = true;
-          BraveWalletDisabled = true;
-          BraveWaybackMachineEnabled = false;
-          BraveWebDiscoveryEnabled = false;
-          BrowserGuestModeEnabled = false;
-          BrowserSignin = 0;
-          BuiltInDnsClientEnabled = false;
-          CloudReportingEnabled = false;
-          DefaultBrowserSettingEnabled = true;
-          DefaultGeolocationSetting = 2;
-          DefaultLocalFontsSetting = 2;
-          DefaultNotificationsSetting = 2;
-          DefaultSearchProviderEnabled = true;
-          DefaultSearchProviderName = "Google";
-          DefaultSearchProviderSearchURL = "www.google.com";
-          DefaultSensorsSetting = 2;
-          DefaultSerialGuardSetting = 2;
-          DeviceActivityHeartbeatEnabled = false;
-          DeviceMetricsReportingEnabled = false;
-          DriveDisabled = true;
-          ExtensionInstallForcelist = [
-            "edlhclhffmclbhgifomamlomnfolnepa" # Elm Debug Helper
-            "pejdijmoenmkgeppbflobdenhhabjlaj" # iCloud Passwords
-          ];
-          ExtensionManifestV2Availability = 2;
-          HeartbeatEnabled = false;
-          LogUploadEnabled = false;
-          MemorySaverEnabled = true;
-          MetricsReportingEnabled = false;
-          ParcelTrackingEnabled = false;
-          PasswordLeakDetectionEnabled = false;
-          PasswordManagerEnabled = false;
-          PasswordSharingEnabled = false;
-          QuickAnswersEnabled = false;
-          RelatedWebsiteSetsEnabled = false;
-          ReportAppInventory = [ "" ];
-          ReportDeviceActivityTimes = false;
-          ReportDeviceAppInfo = false;
-          ReportDeviceSystemInfo = false;
-          ReportDeviceUsers = false;
-          ReportWebsiteTelemetry = [ "" ];
-          SafeBrowsingDeepScanningEnabled = false;
-          SafeBrowsingExtendedReportingEnabled = false;
-          SafeBrowsingSurveysEnabled = false;
-          ShoppingListEnabled = false;
-          ShowHomeButton = false;
-          # SyncDisabled = true;
-          TorDisabled = true;
-          TranslateEnabled = false;
-          WebAppInstallForceList = [
-            {
-              url = "https://www.facebook.com/?ref=homescreenpwa";
-              default_launch_container = "window";
-            }
-          ];
+      launchd.daemons."com.kuglee.restore-brave-managed-prefs" = {
+        serviceConfig = {
+          Label = "com.kuglee.restore-brave-managed-prefs";
+          ProgramArguments = [ "/bin/sh" "-c" "/bin/wait4path ${restoreBravePlist} && exec ${restoreBravePlist}" ];
+          RunAtLoad = true;
+          WatchPaths = [ "/Library/Managed Preferences" ];
+          StartInterval = 3600;
+          StandardOutPath = "/var/log/restore-brave-managed-prefs.log";
+          StandardErrorPath = "/var/log/restore-brave-managed-prefs.err.log";
         };
-      in ''
+      };
+
+      system.activationScripts.postActivation.text = ''
         # Make the menu bar settings take effect for running applications
         osascript -l JavaScript -e 'ObjC.import("Foundation"); $.NSDistributedNotificationCenter.defaultCenter.postNotificationNameObject("AppleInterfaceFullScreenMenuBarVisibilityChangedNotification", $())'
-
-        # Debloat Brave
-        # from: https://gist.github.com/yashgorana/be2368c04c0ec11b6e21c57a229a65ca
-        mkdir -p /Library/Managed\ Preferences/
-        cp -f ${bravePlist} /Library/Managed\ Preferences/com.brave.Browser.plist
-        chmod 644 /Library/Managed\ Preferences/com.brave.Browser.plist
 
         # Set Brave as the default browser
         # NOTE: this will show a popup if the browser is not already the default
