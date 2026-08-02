@@ -162,9 +162,10 @@
 
           # Custom apps
           pkgs.bettertouchtool
-          pkgs.kinesis-smart-set-app
+          pkgs.display-pilot
           pkgs.forklift
           pkgs.injection-next
+          pkgs.kinesis-smart-set-app
           pkgs.sf-symbols
         ];
       system.activationScripts.installMasApps.text = ''
