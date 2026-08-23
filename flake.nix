@@ -2,8 +2,6 @@
   description = "Kuglee nix-darwin system flake";
 
   inputs = {
-    # Because of a Darwin regression pin nixpkgs to the commit just before the regression
-    # see: https://github.com/NixOS/nixpkgs/issues/511329
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
