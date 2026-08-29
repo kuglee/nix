@@ -57,6 +57,8 @@
 
       keybind = [
         "cmd+d=unbind"
+        "ctrl+f=write_screen_file:paste"
+        "chain=text:\\x01 nvim \\n"
       ];
     };
   };
