@@ -23,6 +23,10 @@ in
       mgr = {
         sort_dir_first = false;
       };
+      preview = {
+        max_width = 1100;
+        max_height = 1400;
+      };
       preloaders = [];
     };
   };
