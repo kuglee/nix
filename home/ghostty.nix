@@ -49,10 +49,14 @@
       # Start new windows in fullscreen
       fullscreen = true;
 
+
       # Keybindings
+      key-remap = [
+        "cmd=ctrl"
+      ];
+
       keybind = [
-        "cmd+s=text:\\x13"
-        "cmd+a=text:\\x01"
+        "cmd+d=unbind"
       ];
     };
   };
