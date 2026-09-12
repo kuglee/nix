@@ -20,6 +20,7 @@
     ./git.nix
     ./intellij
     ./keyboard-layout.nix
+    ./phpantom.nix
     ./rtorrent.nix
     ./swiftformat.nix
     ./yazi.nix
