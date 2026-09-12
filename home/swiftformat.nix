@@ -10,7 +10,6 @@
 --indent 2
 
 # blank lines
---enable blankLinesBetweenImports
 --line-between-guards true
 
 # extensionAccessControl
@@ -21,6 +20,8 @@
 --disable unusedPrivateDeclarations
 --disable consistentSwitchCaseSpacing
 --disable wrapMultilineStatementBraces
+--disable wrapIfStatementBodies
+--disable wrapIfExpressionBodies
 
 # wrap
 --enable wrapMultilineConditionalAssignment
@@ -37,5 +38,6 @@
 --func-attributes prev-line
 --stored-var-attributes prev-line
 --type-attributes prev-line
+--allow-partial-wrapping false
   '';
 }
