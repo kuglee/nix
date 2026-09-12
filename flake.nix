@@ -27,6 +27,7 @@
       "IdeaVIM"
       "com.github.erotourtes.harpoon"
       "com.vermouthx.xcode-theme"
+      "com.jetbrains.php"
     ]).overrideAttrs (old: {
         disallowedReferences = [];
       });
@@ -135,7 +136,6 @@
           pkgs.ripgrep
           pkgs.swiftformat
           pkgs.xcbeautify
-          pkgs.swiftformat
           pkgs.ghostty-bin
           pkgs.elmPackages.elm
           pkgs.elmPackages.elm-format
