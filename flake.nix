@@ -152,6 +152,7 @@
           pkgs.xcbeautify
           pkgs.stylua
           pkgs.mediainfo
+          pkgs.phpantom-lsp
 
           # GUI apps
           pkgs.appcleaner
