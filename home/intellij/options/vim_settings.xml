@@ -1,0 +1,31 @@
+<application>
+  <component name="VimEditorSettings">
+    <editor />
+  </component>
+  <component name="VimKeySettings">
+    <shortcut-conflicts>
+      <shortcut-conflict owner="vim">
+        <text encoding="base64">c2hpZnQgcHJlc3NlZCBET1dO</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text encoding="base64">c2hpZnQgcHJlc3NlZCBSSUdIVA==</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text encoding="base64">c2hpZnQgcHJlc3NlZCBUQUI=</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text encoding="base64">cHJlc3NlZCBUQUI=</text>
+      </shortcut-conflict>
+    </shortcut-conflicts>
+  </component>
+  <component name="VimSettings">
+    <state version="7" enabled="true" />
+    <notifications>
+      <idea-join enabled="false" />
+      <idea-put enabled="true" />
+      <was-automatically-subscribed-to-eap enabled="false" />
+      <first-ideavim-version value="2.30.0" />
+      <last-ideavim-version value="2.46.1" />
+    </notifications>
+  </component>
+</application>

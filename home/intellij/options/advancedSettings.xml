@@ -1,0 +1,13 @@
+<application>
+  <component name="AdvancedSettings">
+    <option name="settings">
+      <map>
+        <entry key="SecurityAnalysis.canShowProblemTab" value="false" />
+        <entry key="gateway.wsl.open.projects.natively" value="true" />
+        <entry key="open.devcontainer.projects.natively" value="true" />
+        <entry key="vcs.commit.tool.window" value="false" />
+        <entry key="vcs.non.modal.commit.toggle.ui" value="true" />
+      </map>
+    </option>
+  </component>
+</application>
